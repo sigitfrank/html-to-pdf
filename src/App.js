@@ -253,7 +253,7 @@ const App = () => {
   return (
     <div className="App container mt-5">
       <button class="btn btn-primary" onClick={() => printDocument()}>Export To PDF</button>
-      <div id="divToPrint">
+      <div id="divToPrint" style={{ display: 'none' }}>
         <table id="t" class="table" style={{ marginTop: 20 }}>
           <thead>
             <tr>
@@ -329,7 +329,7 @@ const App = () => {
         </table>
       </div>
 
-      <div id="standardPrint">
+      <div id="standardPrint" style={{ display: 'none' }}>
         <table style={{ width: '100%' }}>
           <thead>
             <tr>
