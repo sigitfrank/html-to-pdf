@@ -131,63 +131,66 @@ const App = () => {
         },
       ],
 
-      footer: {
-        marginTop: 10,
-        marginLeft: 20,
-        marginRight: 20,
-        columns: [
+      footer: function name(currentPage, pageCount, pageSize) {
+        return [
+          { canvas: [{ type: 'rect', x: 25, y: 20, w: pageSize.width - 60, h: .25 }] },
           {
-            stack: [
-              { text: 'PT TUV NORD INDONESIA', bold: true },
-              { text: 'Head Office', marginTop: 5, bold: true },
-              { text: 'Perkantoran Hijau Arkadia, TowerF', fontSize: 6 },
-              { text: '7th Floor, Suite706 JL TB', fontSize: 6 },
-              { text: 'Simatupang Kav 88, Jakarta Selatan', fontSize: 6 },
-              { text: 'Telepon +62 21 78837338', fontSize: 6 },
-              { text: 'Fax. +62 21 78837336', fontSize: 6 },
-              { text: 'Emailindonesia@tuv-nord.com', fontSize: 6 },
+            marginLeft: 20,
+            marginRight: 20,
+            columns: [
+              {
+                stack: [
+                  { text: 'PT TUV NORD INDONESIA', bold: true },
+                  { text: 'Head Office', marginTop: 5, bold: true },
+                  { text: 'Perkantoran Hijau Arkadia, TowerF', fontSize: 6 },
+                  { text: '7th Floor, Suite706 JL TB', fontSize: 6 },
+                  { text: 'Simatupang Kav 88, Jakarta Selatan', fontSize: 6 },
+                  { text: 'Telepon +62 21 78837338', fontSize: 6 },
+                  { text: 'Fax. +62 21 78837336', fontSize: 6 },
+                  { text: 'Emailindonesia@tuv-nord.com', fontSize: 6 },
+                ],
+                style: 'footer',
+              },
+              {
+                stack: [
+                  { text: 's', color: 'white' },
+                  { text: 'Laboratory & LS Pro Depratment', marginTop: 5, bold: true },
+                  { text: 'Jl Science Timur 1 Block B3-F1', fontSize: 6 },
+                  { text: 'Cikarang-Bekasi17530', fontSize: 6 },
+                  { text: 'Telp. +62 21 29574720', fontSize: 6 },
+                  { text: 'Emailindonesia@tuv-nord.com', fontSize: 6 },
+                ],
+                style: 'footer',
+              },
+              {
+                stack: [
+                  { text: 's', color: 'white' },
+                  { text: 'Surabaya Branch Office', marginTop: 5, bold: true },
+                  { text: 'Intiland Tower11th Floor, Suite1 E,', fontSize: 6 },
+                  { text: 'Jalan Panglima Sudirman 101-103', fontSize: 6 },
+                  { text: 'Surabaya 60271', fontSize: 6 },
+                  { text: 'Telp. +62 31 5344454', fontSize: 6 },
+                  { text: 'Fax. +62 31 5344482', fontSize: 6 },
+                  { text: 'Emailindonesia@tuv-nord.com', fontSize: 6 },
+                ],
+                style: 'footer',
+              },
+              {
+                stack: [
+                  { text: 's', color: 'white' },
+                  { text: 'Medan Representative Office', marginTop: 5, bold: true },
+                  { text: 'Forum Nine - CIMB Building,9th Jl.', fontSize: 6 },
+                  { text: 'Imam Bonjol No. 9 Medan 20112', fontSize: 6 },
+                  { text: 'Indonesia', fontSize: 6 },
+                  { text: 'Telp: +62 61 88818957', fontSize: 6 },
+                ],
+                style: 'footer',
+              },
             ],
-            style: 'footer',
-          },
-          {
-            stack: [
-              { text: 's', color: 'white' },
-              { text: 'Laboratory & LS Pro Depratment', marginTop: 5, bold: true },
-              { text: 'Jl Science Timur 1 Block B3-F1', fontSize: 6 },
-              { text: 'Cikarang-Bekasi17530', fontSize: 6 },
-              { text: 'Telp. +62 21 29574720', fontSize: 6 },
-              { text: 'Emailindonesia@tuv-nord.com', fontSize: 6 },
-            ],
-            style: 'footer',
-          },
-          {
-            stack: [
-              { text: 's', color: 'white' },
-              { text: 'Surabaya Branch Office', marginTop: 5, bold: true },
-              { text: 'Intiland Tower11th Floor, Suite1 E,', fontSize: 6 },
-              { text: 'Jalan Panglima Sudirman 101-103', fontSize: 6 },
-              { text: 'Surabaya 60271', fontSize: 6 },
-              { text: 'Telp. +62 31 5344454', fontSize: 6 },
-              { text: 'Fax. +62 31 5344482', fontSize: 6 },
-              { text: 'Emailindonesia@tuv-nord.com', fontSize: 6 },
-            ],
-            style: 'footer',
-          },
-          {
-            stack: [
-              { text: 's', color: 'white' },
-              { text: 'Medan Representative Office', marginTop: 5, bold: true },
-              { text: 'Forum Nine - CIMB Building,9th Jl.', fontSize: 6 },
-              { text: 'Imam Bonjol No. 9 Medan 20112', fontSize: 6 },
-              { text: 'Indonesia', fontSize: 6 },
-              { text: 'Telp: +62 61 88818957', fontSize: 6 },
-            ],
-            style: 'footer',
-          },
-
-        ],
+          }
+        ]
       },
-      pageMargins: [20, 135, 20, 115],
+      pageMargins: [30, 135, 20, 115],
       header: {
         marginTop: 10,
         marginLeft: 20,
@@ -206,7 +209,8 @@ const App = () => {
       },
       styles: {
         footer: {
-          marginTop: 20,
+          marginTop: 5,
+          marginLeft: 10,
           fontSize: 8,
         },
         Note: {
@@ -244,6 +248,7 @@ const App = () => {
         },
       },
     }
+
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
     pdfMake.createPdf(documentDefinition).open();
 
@@ -254,7 +259,7 @@ const App = () => {
     <div className="App container mt-5">
       <button class="btn btn-primary" onClick={() => printDocument()}>Export To PDF</button>
       <div id="divToPrint" style={{ display: 'none' }}>
-        <table id="t" class="table" style={{ marginTop: 20 }}>
+        <table id="t" class="table">
           <thead>
             <tr>
               <th style={{ fontSize: '12px', textAlign: 'center', width: '15px' }} >No</th>
@@ -292,32 +297,32 @@ const App = () => {
                   <tr style={{ margin: '5px 0' }}>
                     <th></th>
                     <th colSpan="11" style={{ fontSize: '10px', }}>
-
-
-
                       <span style={{ fontSize: '12px', fontWeight: 'bold' }}>Parameter</span>
                       <table >
                         <tr border="0" style={{ border: 0 }}>
                           <td border="0" style={{ border: 0 }}>Method:</td>
-                          <td border="0" style={{ border: 0 }}>{'data.methodName'}</td>
+                          <td border="0" style={{ border: 0 }} >{'data.methodName'}</td>
+                          <td border="0" style={{ border: 0, color: '#EEE' }} >lorem ipsum</td>
                           <td border="0" style={{ border: 0 }}>Range</td>
-                          <td border="0" style={{ border: 0 }}>data.range</td>
+                          <td border="0" style={{ border: 0 }} >data.range</td>
                         </tr>
                         <tr border="0" style={{ border: 0 }}>
                           <td border="0" style={{ border: 0 }}>Measuring:</td>
-                          <td border="0" style={{ border: 0 }}>{'data.methodName'}</td>
+                          <td border="0" style={{ border: 0 }} >{'data.methodName'}</td>
+                          <td border="0" style={{ border: 0, color: '#EEE' }} >lorem ipsum</td>
                           <td border="0" style={{ border: 0 }}>Jumlah</td>
-                          <td border="0" style={{ border: 0 }}>data.range</td>
+                          <td border="0" style={{ border: 0 }} >data.range</td>
                         </tr>
                         <tr border="0" style={{ border: 0 }}>
                           <td border="0" style={{ border: 0 }}>Device:</td>
-                          <td border="0" style={{ border: 0 }}>{'data.methodName'}</td>
+                          <td border="0" style={{ border: 0 }} >{'data.methodName'}</td>
+                          <td border="0" style={{ border: 0, color: '#EEE' }} >lorem ipsum</td>
                           <td border="0" style={{ border: 0 }}>Point</td>
-                          <td border="0" style={{ border: 0 }}>data.range</td>
+                          <td border="0" style={{ border: 0 }} >data.range</td>
                         </tr>
                         <tr>
                           <td border="0" style={{ border: 0 }}>Total:</td>
-                          <td border="0" style={{ border: 0 }} colSpan={3}>{'data.methodName'}</td>
+                          <td border="0" style={{ border: 0 }} colSpan={4}>{'data.methodName'}</td>
                         </tr>
                       </table>
                     </th>
